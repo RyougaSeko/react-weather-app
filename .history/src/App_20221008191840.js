@@ -10,12 +10,10 @@ import Results from './components/Result';
 
 function App() {
   const [city, setCity] = useState("");
-  const [results, setResults] = useState("")
   const getWeather = (e) => {
       e.preventDefault();
-      axios.get(`https://api.weatherapi.com/v1/current.json?key=8ede98548cc44339b4191053220810&q=${city}&aqi=no`)
-           .then(res => {
-
+      axios.get("http://api.weatherapi.com/v1/current.json?key=8ede98548cc44339b4191053220810&q=London&aqi=no")
+           .then(res => 
               setResults({
                 country: res.data.location.country,
                 cityName: res.data.location.country,
@@ -24,16 +22,13 @@ function App() {
                 icon: res.data.current.condition.icon
 
               })
-
-            })
+            )
   }
   return (
-    <div className="wrapper">
-      <div className="container">
-        <Title /> 
-        <Form setCity={setCity} getWeather={getWeather} /> 
-        <Results results={results}/> 
-      </div>
+    <div className="test">
+      <Title /> 
+      <Form setCity={setCity} getWeather={getWeather} /> 
+      <Results /> 
     </div>
   );
 }

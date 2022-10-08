@@ -13,7 +13,7 @@ function App() {
   const [results, setResults] = useState("")
   const getWeather = (e) => {
       e.preventDefault();
-      axios.get(`https://api.weatherapi.com/v1/current.json?key=8ede98548cc44339b4191053220810&q=${city}&aqi=no`)
+      axios.get("http://api.weatherapi.com/v1/current.json?key=8ede98548cc44339b4191053220810&q=London&aqi=no")
            .then(res => {
 
               setResults({
@@ -29,11 +29,10 @@ function App() {
   }
   return (
     <div className="wrapper">
-      <div className="container">
-        <Title /> 
-        <Form setCity={setCity} getWeather={getWeather} /> 
-        <Results results={results}/> 
-      </div>
+      <div className="container"></div>
+      <Title /> 
+      <Form setCity={setCity} getWeather={getWeather} /> 
+      <Results results={results}/> 
     </div>
   );
 }
